@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f7f8fc">
+<title>Totoro AI — Study Buddy</title>
+<style>
+:root{color-scheme:light;--ink:#25283b;--muted:#666b80;--line:#e3e6f0;--panel:#fff;--bg:#f7f8fc;--accent:#6b61d9;--accent2:#f2a6c7;--mint:#c9f3e5}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(135deg,#fff5fb 0,#f7f8fc 46%,#eefaf6 100%);color:var(--ink);font:16px/1.5 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;min-height:100vh}
+header{padding:20px max(20px,calc((100vw - 1050px)/2));display:flex;align-items:center;gap:12px;border-bottom:1px solid #e9eaf1;background:#ffffffc9;backdrop-filter:blur(10px)}
+.logo{height:44px;width:44px;border-radius:15px;display:grid;place-items:center;background:linear-gradient(135deg,var(--accent2),var(--mint));font-size:24px}
+.brand{font-weight:800;font-size:1.2rem;letter-spacing:-.03em}.tag{font-size:.82rem;color:var(--muted)}
+.wrap{max-width:1050px;margin:0 auto;padding:40px 20px 28px}.hero{text-align:center;margin-bottom:26px}.pill{display:inline-block;background:#fff;border:1px solid var(--line);padding:5px 12px;border-radius:999px;font-size:.8rem;color:var(--accent);font-weight:700}
+h1{font-size:clamp(2rem,5vw,3rem);line-height:1.12;letter-spacing:-.055em;margin:15px 0 10px}.hero p{color:var(--muted);margin:0}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) 270px;gap:18px;align-items:start}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:22px;box-shadow:0 12px 40px #34365b0b;overflow:hidden}
+.cardhead{padding:17px 20px;border-bottom:1px solid var(--line);display:flex;justify-content:space-between;gap:10px;align-items:center}.cardhead strong{font-size:1rem}.status{font-size:.75rem;background:#fff4d7;color:#7a5b12;padding:5px 9px;border-radius:999px}
+#messages{min-height:270px;max-height:420px;overflow:auto;padding:20px;display:flex;flex-direction:column;gap:13px}
+.msg{max-width:92%;padding:12px 15px;border-radius:16px;white-space:pre-wrap;overflow-wrap:anywhere}.assistant{align-self:flex-start;background:#f1f0ff}.user{align-self:flex-end;background:#e1f7ee}
+.composer{padding:15px;border-top:1px solid var(--line);display:flex;gap:9px}.composer textarea{resize:vertical;min-height:48px;max-height:130px;flex:1;border:1px solid var(--line);border-radius:13px;padding:12px;font:inherit;color:var(--ink);background:#fff}.button{border:0;border-radius:13px;padding:0 17px;background:var(--accent);color:#fff;font:inherit;font-weight:750;cursor:pointer}.button:focus-visible,a:focus-visible,textarea:focus-visible{outline:3px solid #a9a3ff;outline-offset:2px}.side{padding:18px}.side h2{font-size:1rem;margin:0 0 9px}.side p,.side li{font-size:.9rem;color:var(--muted)}.side ul{padding-left:19px}.side a{color:var(--accent);font-weight:700}.side .shortcut{display:block;margin-top:14px;text-align:center;border:1px solid var(--line);border-radius:12px;padding:11px;text-decoration:none}
+.disclaimer{font-size:.82rem;color:var(--muted);margin:18px 4px 0}.quick{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}.quick button{background:white;border:1px solid var(--line);border-radius:999px;padding:8px 11px;color:var(--ink);cursor:pointer;font:inherit;font-size:.83rem}
+footer{text-align:center;color:#777b8e;font-size:.78rem;padding:0 20px 26px}
+@media(max-width:760px){.grid{grid-template-columns:1fr}.wrap{padding-top:28px}.side{order:2}#messages{min-height:220px}}
+</style>
+</head>
+<body>
+<header><div class="logo" aria-hidden="true">🌿</div><div><div class="brand">Totoro AI</div><div class="tag">A friendly study buddy</div></div></header>
+<main class="wrap">
+<section class="hero"><span class="pill">YOUR PERSONAL STUDY SPACE</span><h1>Hi there! What are we<br>learning today?</h1><p>Ask a question, explore an idea, or get help understanding homework.</p></section>
+<div class="grid">
+<section class="card" aria-label="Chat demo">
+<div class="cardhead"><strong>💬 Study chat</strong><span class="status" id="status">Demo mode</span></div>
+<div id="messages" aria-live="polite"><div class="msg assistant">Hi! I'm Totoro AI 🌱 This starter version is a demo, so I can show the chat interface and give a few built-in study tips. To answer a wide range of questions with real AI, connect an AI provider through a secure backend.</div></div>
+<div class="composer"><textarea id="prompt" aria-label="Your question" placeholder="Ask a study question…" rows="2"></textarea><button class="button" id="send">Send</button></div>
+</section>
+<aside class="card side"><h2>✨ Try asking</h2><p>Choose a starter prompt:</p>
+<div class="quick"><button data-prompt="Explain photosynthesis in simple steps.">🌱 Photosynthesis</button><button data-prompt="Help me plan a 20-minute study session.">📚 Study plan</button><button data-prompt="Explain fractions with an example.">➗ Fractions</button></div>
+<h2 style="margin-top:22px">🔗 Official ChatGPT</h2><p>This button opens the original ChatGPT site. If your school blocks it, the block may still apply.</p>
+<a class="shortcut" href="https://chatgpt.com/g/g-p-6acaaeef912c8191bb0dbc3dcf8b9d5bpersonal/c/6ad6b1a2-55b8-83e8-b843-74277750937c" target="_blank" rel="noopener noreferrer">Open ChatGPT ↗</a>
+</aside>
+</div>
+<p class="disclaimer"><strong>Demo only:</strong> This page does not connect to a live AI service, send messages to a server, or collect your chats. The built-in replies are limited examples. For live AI, use an approved provider and a secure backend; never put an API key in this HTML file. Follow your school's technology rules.</p>
+</main>
+<footer>Totoro AI · Independent demo, not affiliated with OpenAI.</footer>
+<script>
+const messages=document.getElementById('messages'), promptBox=document.getElementById('prompt');
+function add(text,who){const d=document.createElement('div');d.className='msg '+who;d.textContent=text;messages.appendChild(d);messages.scrollTop=messages.scrollHeight;}
+function reply(q){const s=q.toLowerCase();if(s.includes('photosynthesis'))return 'Photosynthesis is how plants make food:\n1. Leaves take in sunlight.\n2. Roots bring in water, and leaves take in carbon dioxide from air.\n3. The plant uses light energy to make sugar and releases oxygen.\n\nA simple summary: light + water + carbon dioxide → sugar + oxygen.';if(s.includes('study')||s.includes('plan'))return 'Try this 20-minute study plan:\n• 2 min: choose one goal.\n• 10 min: review notes and make a few practice questions.\n• 5 min: answer without looking.\n• 3 min: check mistakes and choose what to review next.';if(s.includes('fraction'))return 'A fraction shows part of a whole. In 3/4, the bottom number (4) means the whole is split into 4 equal parts, and the top number (3) means you have 3 of them. If a pizza has 4 equal slices and you eat 3, you ate 3/4.';return 'This starter demo has only a few built-in examples, so it cannot answer that one yet. For a live AI response, this page needs to be connected to an approved AI provider through a secure backend. You can try one of the sample prompts on the right.';}
+function send(){const q=promptBox.value.trim();if(!q)return;add(q,'user');promptBox.value='';setTimeout(()=>add(reply(q),'assistant'),180);}
+document.getElementById('send').addEventListener('click',send);
+promptBox.addEventListener('keydown',e=>{if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();send();}});
+document.querySelectorAll('[data-prompt]').forEach(b=>b.addEventListener('click',()=>{promptBox.value=b.dataset.prompt;promptBox.focus();}));
+</script>
+</body>
+</html>
